@@ -6,7 +6,10 @@ import google.generativeai as genai
 # Configure Gemini API
 def setup_gemini():
     """Setup Gemini API with your API key"""
-    api_key = "Ab8RN6IzwRAESnnrp6HIIxvh8YaPMJggQZXMxonklBJchIXL7Q"
+    from dotenv import load_dotenv
+
+    load_dotenv()
+    api_key= os.getenv("api_key")
     
     genai.configure(api_key=api_key)
     return genai.GenerativeModel('gemini-pro')
